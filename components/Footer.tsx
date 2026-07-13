@@ -42,10 +42,17 @@ export default function Footer() {
               <li><Link href="/legal/privacy" className="hover:text-blue-900">Privacy policy</Link></li>
             </ul>
           </div>
-          <div>
+          <div className="col-span-2 sm:col-span-1">
             <p className="font-semibold text-gray-900">Contact</p>
             <ul className="mt-2 space-y-1">
-              <li>compliance@pepxresearch.example</li>
+              <li>
+                <a
+                  href="mailto:compliance@pepxresearch.example"
+                  className="break-words hover:text-blue-900"
+                >
+                  compliance@pepxresearch.example
+                </a>
+              </li>
               <li>Institutional inquiries only</li>
             </ul>
           </div>
