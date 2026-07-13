@@ -15,6 +15,11 @@ export default function ProductsPage() {
     return Array.from(counts.entries()).sort((a, b) => a[0].localeCompare(b[0]));
   }, []);
 
+  const tabs: [string, number][] = [
+    ["All Products", products.length],
+    ...categories,
+  ];
+
   const visibleProducts =
     activeCategory === "All Products"
       ? products
@@ -22,45 +27,29 @@ export default function ProductsPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
-      <div className="grid gap-8 lg:grid-cols-[220px_1fr]">
-        <aside className="lg:sticky lg:top-20 lg:h-fit">
-          <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
-            Categories
-          </p>
-          <nav className="mt-3 flex flex-col gap-1 text-sm">
+      <div className="-mx-4 overflow-x-auto px-4">
+        <nav className="flex gap-2 whitespace-nowrap border-b border-gray-200 pb-px">
+          {tabs.map(([cat, count]) => (
             <button
-              onClick={() => setActiveCategory("All Products")}
-              className={`rounded-lg px-3 py-2 text-left transition ${
-                activeCategory === "All Products"
-                  ? "bg-blue-50 font-medium text-blue-900"
-                  : "text-gray-600 hover:bg-gray-50"
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`flex-shrink-0 border-b-2 px-3 py-2 text-sm transition ${
+                activeCategory === cat
+                  ? "border-blue-700 font-medium text-blue-900"
+                  : "border-transparent text-gray-500 hover:text-gray-800"
               }`}
             >
-              All Products
-              <span className="ml-1.5 text-xs text-gray-400">({products.length})</span>
+              {cat}
+              <span className="ml-1.5 text-xs text-gray-400">({count})</span>
             </button>
-            {categories.map(([cat, count]) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`rounded-lg px-3 py-2 text-left transition ${
-                  activeCategory === cat
-                    ? "bg-blue-50 font-medium text-blue-900"
-                    : "text-gray-600 hover:bg-gray-50"
-                }`}
-              >
-                {cat}
-                <span className="ml-1.5 text-xs text-gray-400">({count})</span>
-              </button>
-            ))}
-          </nav>
-        </aside>
-
-        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-          {visibleProducts.map((p) => (
-            <ProductCard key={p.slug} product={p} />
           ))}
-        </div>
+        </nav>
+      </div>
+
+      <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+        {visibleProducts.map((p) => (
+          <ProductCard key={p.slug} product={p} />
+        ))}
       </div>
     </div>
   );
