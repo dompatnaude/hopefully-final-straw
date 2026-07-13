@@ -82,6 +82,7 @@ export default function DnaHelixBackground() {
       }
     }
 
+    dnaGroup.scale.setScalar(0.8);
     dnaGroup.rotation.z = 0.3;
     dnaGroup.rotation.x = 0.2;
 
@@ -121,7 +122,7 @@ export default function DnaHelixBackground() {
     <div
       ref={containerRef}
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 overflow-hidden"
+      className="pointer-events-none absolute inset-y-0 right-0 hidden w-full overflow-hidden opacity-80 sm:block sm:w-3/5 lg:w-1/2"
     />
   );
 }
