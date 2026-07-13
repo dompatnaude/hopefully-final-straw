@@ -108,60 +108,41 @@ export default function ProductDetailPage() {
         </div>
 
         <aside className="h-fit rounded-xl border border-gray-200 bg-gray-50 p-6">
-          {verified ? (
-            <>
-              <h3 className="font-semibold text-gray-900">Order this reagent</h3>
-              <div className="mt-4 space-y-2">
-                {product.packSizes.map((size, i) => (
-                  <label
-                    key={size.sizeMg}
-                    className={`flex cursor-pointer items-center justify-between rounded-lg border px-3 py-2 text-sm transition ${
-                      selectedSize === i
-                        ? "border-blue-900 bg-blue-50 text-gray-900"
-                        : "border-gray-200 bg-white text-gray-600 hover:border-gray-300"
-                    }`}
-                  >
-                    <span className="flex items-center gap-2">
-                      <input
-                        type="radio"
-                        name="size"
-                        checked={selectedSize === i}
-                        onChange={() => setSelectedSize(i)}
-                        className="accent-blue-900"
-                      />
-                      {size.sizeMg} mg
-                    </span>
-                    <span className="font-medium">${size.pricePerUnit}</span>
-                  </label>
-                ))}
-              </div>
-              <button
-                onClick={handleAdd}
-                className="mt-5 w-full rounded-lg bg-blue-900 px-4 py-2.5 font-medium text-white transition hover:bg-blue-800"
+          <h3 className="font-semibold text-gray-900">Order this reagent</h3>
+          <div className="mt-4 space-y-2">
+            {product.packSizes.map((size, i) => (
+              <label
+                key={size.sizeMg}
+                className={`flex cursor-pointer items-center justify-between rounded-lg border px-3 py-2 text-sm transition ${
+                  selectedSize === i
+                    ? "border-blue-900 bg-blue-50 text-gray-900"
+                    : "border-gray-200 bg-white text-gray-600 hover:border-gray-300"
+                }`}
               >
-                {added ? "Added to order request" : "Add to order request"}
-              </button>
-              <p className="mt-3 text-xs text-gray-400">
-                Adding to an order request does not charge your institution. Our team
-                confirms availability and invoices separately.
-              </p>
-            </>
-          ) : (
-            <>
-              <h3 className="font-semibold text-gray-900">Institutional pricing</h3>
-              <p className="mt-3 text-sm text-gray-600">
-                {status === "pending"
-                  ? "Your institutional account is under review. Pricing and ordering unlock once verified."
-                  : "Pricing and ordering are available to verified research institutions only."}
-              </p>
-              <Link
-                href="/account/register"
-                className="mt-5 block rounded-lg bg-blue-900 px-4 py-2.5 text-center font-medium text-white transition hover:bg-blue-800"
-              >
-                {status === "pending" ? "View application status" : "Apply for access"}
-              </Link>
-            </>
-          )}
+                <span className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="size"
+                    checked={selectedSize === i}
+                    onChange={() => setSelectedSize(i)}
+                    className="accent-blue-900"
+                  />
+                  {size.sizeMg} mg
+                </span>
+                <span className="font-medium">${size.pricePerUnit}</span>
+              </label>
+            ))}
+          </div>
+          <button
+            onClick={handleAdd}
+            className="mt-5 w-full rounded-lg bg-blue-900 px-4 py-2.5 font-medium text-white transition hover:bg-blue-800"
+          >
+            {added ? "Added to order request" : "Add to order request"}
+          </button>
+          <p className="mt-3 text-xs text-gray-400">
+            Adding to an order request does not charge your institution.
+            Institutional verification is confirmed at checkout.
+          </p>
         </aside>
       </div>
     </div>
