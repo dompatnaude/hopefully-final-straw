@@ -1,3 +1,5 @@
+"use client";
+
 export default function DnaHelixBackground() {
   const strands = Array.from({ length: 12 });
 
