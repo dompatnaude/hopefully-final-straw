@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 const STORAGE_KEY = "pepx_entry_ack_v1";
 
@@ -28,14 +27,7 @@ export default function EntryGate() {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900/60 px-4 backdrop-blur-sm">
       <div className="w-full max-w-lg rounded-2xl border border-gray-200 bg-white p-8 shadow-2xl">
-        <Image
-          src="/brand/pepx-logo.png"
-          alt="Pep X — High Quality Peptides"
-          width={140}
-          height={84}
-          className="h-10 w-auto"
-        />
-        <h2 className="mt-6 text-xl font-semibold text-gray-900">Before you continue</h2>
+        <h2 className="text-xl font-semibold text-gray-900">Before you continue</h2>
         <p className="mt-2 text-sm leading-relaxed text-gray-600">
           Pep X Research supplies laboratory reagents to verified research institutions,
           biotechnology companies, and universities. Products are sold strictly for
