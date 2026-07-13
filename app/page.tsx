@@ -1,4 +1,5 @@
 import Link from "next/link";
+import DnaHelixBackground from "@/components/DnaHelixBackground";
 
 const pillars = [
   {
@@ -18,8 +19,9 @@ const pillars = [
 export default function Home() {
   return (
     <div>
-      <section className="border-b border-gray-200 bg-gradient-to-b from-gray-50 to-white">
-        <div className="mx-auto max-w-6xl px-4 py-20">
+      <section className="relative overflow-hidden border-b border-gray-200 bg-gradient-to-b from-gray-50 to-white">
+        <DnaHelixBackground />
+        <div className="relative mx-auto max-w-6xl px-4 py-20">
           <span className="inline-block rounded-full border border-blue-900/20 bg-blue-50 px-3 py-1 text-xs font-medium uppercase tracking-widest text-blue-900">
             Research Use Only
           </span>
