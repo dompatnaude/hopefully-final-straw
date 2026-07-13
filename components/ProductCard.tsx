@@ -5,6 +5,18 @@ export default function ProductCard({ product }: { product: Product }) {
   const lowestPrice = Math.min(...product.packSizes.map((p) => p.pricePerUnit));
   const highestPrice = Math.max(...product.packSizes.map((p) => p.pricePerUnit));
 
+  const coaMailto =
+    "mailto:compliance@pepxresearch.example?subject=" +
+    encodeURIComponent("COA request: " + product.name) +
+    "&body=" +
+    encodeURIComponent(
+      "Please send the Certificate of Analysis for " +
+        product.name +
+        " (CAS " +
+        product.casNumber +
+        ")."
+    );
+
   return (
     <div className="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-md">
       <Link
@@ -52,6 +64,22 @@ export default function ProductCard({ product }: { product: Product }) {
           </svg>
           Select options
         </Link>
+
+        <a
+          href={coaMailto}
+          className="mt-2 inline-flex items-center gap-2 rounded-full border border-gray-300 px-4 py-1.5 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M6 2h8l6 6v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4a2 2 0 012-2z"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinejoin="round"
+            />
+            <path d="M14 2v6h6" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+          </svg>
+          Request COA
+        </a>
       </div>
     </div>
   );
