@@ -38,7 +38,9 @@ export default function ProductsPage() {
         </p>
       </div>
 
-      <div className="mt-8 grid gap-8 lg:grid-cols-[220px_1fr]">
+      <h2 className="mt-8 text-2xl font-semibold text-gray-900">Featured products</h2>
+
+      <div className="mt-6 grid gap-8 lg:grid-cols-[220px_1fr]">
         <aside className="lg:sticky lg:top-20 lg:h-fit">
           <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
             Categories
