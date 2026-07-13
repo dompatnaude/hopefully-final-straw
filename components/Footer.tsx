@@ -51,10 +51,16 @@ export default function Footer() {
           </div>
         </div>
 
-        <p className="mt-8 text-xs text-gray-400">
-          © {new Date().getFullYear()} Pep X Research. Not affiliated with any hospital,
-          pharmacy, or telehealth provider.
-        </p>
+        <div className="mt-8 flex flex-col gap-2 border-t border-gray-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-gray-400">
+            © {new Date().getFullYear()} Pep X Research. Not affiliated with any hospital,
+            pharmacy, or telehealth provider.
+          </p>
+          <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-gray-200 bg-white px-2.5 py-1 text-xs font-medium text-gray-600">
+            <span aria-hidden="true">🇺🇸</span>
+            U.S. Based Company
+          </span>
+        </div>
       </div>
     </footer>
   );
