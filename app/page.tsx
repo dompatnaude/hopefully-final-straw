@@ -1,5 +1,7 @@
 import Link from "next/link";
 import DnaHelixBackground from "@/components/DnaHelixBackground";
+import ProductCard from "@/components/ProductCard";
+import { products } from "@/lib/products";
 
 const pillars = [
   {
@@ -49,6 +51,35 @@ export default function Home() {
             </Link>
           </div>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-semibold text-gray-900">Featured reagents</h2>
+            <p className="mt-1 max-w-xl text-sm text-gray-600">
+              A selection from our lot-documented, research-use-only catalog. Every
+              product ships with a Certificate of Analysis.
+            </p>
+          </div>
+          <Link
+            href="/products"
+            className="hidden shrink-0 text-sm font-medium text-blue-900 hover:underline sm:block"
+          >
+            View full catalog →
+          </Link>
+        </div>
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {products.slice(0, 4).map((p) => (
+            <ProductCard key={p.slug} product={p} />
+          ))}
+        </div>
+        <Link
+          href="/products"
+          className="mt-8 inline-block text-sm font-medium text-blue-900 hover:underline sm:hidden"
+        >
+          View full catalog →
+        </Link>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16">
