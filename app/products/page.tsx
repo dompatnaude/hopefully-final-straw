@@ -2,12 +2,9 @@
 
 import { useMemo, useState } from "react";
 import { products } from "@/lib/products";
-import { useAuth } from "@/lib/auth-context";
 import ProductCard from "@/components/ProductCard";
 
 export default function ProductsPage() {
-  const { status } = useAuth();
-  const canSeePricing = status === "verified";
   const [activeCategory, setActiveCategory] = useState<string>("All Products");
 
   const categories = useMemo(() => {
@@ -28,17 +25,10 @@ export default function ProductsPage() {
       <div className="border-b border-gray-200 pb-8">
         <h1 className="text-2xl font-bold text-gray-900">Reagent catalog</h1>
         <p className="mt-2 max-w-2xl text-sm text-gray-600">
-          All products are Research Use Only and sold exclusively to verified
-          research institutions. Certificates of Analysis and Safety Data Sheets
-          are available on every product page.
+          All products are Research Use Only. Certificates of Analysis and Safety
+          Data Sheets are available on every product page. Institutional
+          verification is required at checkout.
         </p>
-        {!canSeePricing && (
-          <div className="mt-4 inline-block rounded-lg border border-amber-200 bg-amber-50 px-4 py-2 text-sm text-amber-800">
-            {status === "pending"
-              ? "Your application is under review — pricing unlocks once verified."
-              : "Pricing is visible to verified institutional accounts only."}
-          </div>
-        )}
       </div>
 
       <div className="mt-8 grid gap-8 lg:grid-cols-[220px_1fr]">
@@ -77,7 +67,7 @@ export default function ProductsPage() {
 
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {visibleProducts.map((p) => (
-            <ProductCard key={p.slug} product={p} canSeePricing={canSeePricing} />
+            <ProductCard key={p.slug} product={p} />
           ))}
         </div>
       </div>
