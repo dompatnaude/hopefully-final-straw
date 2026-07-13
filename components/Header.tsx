@@ -32,16 +32,22 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-gray-200 bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/brand/pepx-logo.png"
-            alt="Pep X — High Quality Peptides"
-            width={160}
-            height={96}
-            priority
-            className="h-12 w-auto"
-          />
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/brand/pepx-logo.png"
+              alt="Pep X — High Quality Peptides"
+              width={160}
+              height={96}
+              priority
+              className="h-12 w-auto"
+            />
+          </Link>
+          <span className="hidden items-center gap-1.5 rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs font-medium text-gray-600 sm:inline-flex">
+            <span aria-hidden="true">🇺🇸</span>
+            U.S. Based
+          </span>
+        </div>
 
         <nav className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (
