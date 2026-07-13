@@ -56,7 +56,7 @@ export default function Home() {
       <section className="mx-auto max-w-6xl px-4 py-16">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-semibold text-gray-900">Featured reagents</h2>
+            <h2 className="text-2xl font-semibold text-gray-900">Featured products</h2>
             <p className="mt-1 max-w-xl text-sm text-gray-600">
               A selection from our lot-documented, research-use-only catalog. Every
               product ships with a Certificate of Analysis.
