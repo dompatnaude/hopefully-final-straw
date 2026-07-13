@@ -43,7 +43,15 @@ export default function ProductDetailPage() {
 
       <div className="mt-6 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
         <div>
-          <p className="text-xs font-medium uppercase tracking-wide text-blue-900">
+          <div className="flex items-center justify-center rounded-xl border border-gray-200 bg-gray-50 py-10">
+            <img
+              src="/products/vial.png"
+              alt={product.name}
+              className="h-48 w-auto object-contain"
+            />
+          </div>
+
+          <p className="mt-6 text-xs font-medium uppercase tracking-wide text-blue-900">
             {product.category}
           </p>
           <h1 className="mt-2 text-3xl font-bold text-gray-900">{product.name}</h1>
