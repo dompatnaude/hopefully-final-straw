@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Product } from "@/lib/products";
-import VialIcon from "@/components/VialIcon";
 
 export default function ProductCard({ product }: { product: Product }) {
   const lowestPrice = Math.min(...product.packSizes.map((p) => p.pricePerUnit));
@@ -12,7 +11,11 @@ export default function ProductCard({ product }: { product: Product }) {
         href={`/products/${product.slug}`}
         className="flex items-center justify-center bg-gray-50 py-8"
       >
-        <VialIcon className="h-28 w-auto transition group-hover:scale-105" />
+        <img
+          src="/products/vial.png"
+          alt={product.name}
+          className="h-28 w-auto object-contain transition group-hover:scale-105"
+        />
       </Link>
 
       <div className="flex flex-1 flex-col items-center px-5 pb-5 pt-4 text-center">
