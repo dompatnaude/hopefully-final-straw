@@ -46,7 +46,7 @@ export default function ProductsPage() {
         </nav>
       </div>
 
-      <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-5 xl:grid-cols-3">
         {visibleProducts.map((p) => (
           <ProductCard key={p.slug} product={p} />
         ))}
