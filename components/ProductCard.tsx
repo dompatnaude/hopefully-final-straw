@@ -2,13 +2,7 @@ import Link from "next/link";
 import { Product } from "@/lib/products";
 import VialIcon from "@/components/VialIcon";
 
-export default function ProductCard({
-  product,
-  canSeePricing,
-}: {
-  product: Product;
-  canSeePricing: boolean;
-}) {
+export default function ProductCard({ product }: { product: Product }) {
   const lowestPrice = Math.min(...product.packSizes.map((p) => p.pricePerUnit));
   const highestPrice = Math.max(...product.packSizes.map((p) => p.pricePerUnit));
 
@@ -33,11 +27,9 @@ export default function ProductCard({
         </Link>
 
         <p className="mt-2 text-sm font-medium text-gray-900">
-          {canSeePricing
-            ? lowestPrice === highestPrice
-              ? `$${lowestPrice}`
-              : `$${lowestPrice} – $${highestPrice}`
-            : "Sign in for pricing"}
+          {lowestPrice === highestPrice
+            ? `$${lowestPrice}`
+            : `$${lowestPrice} – $${highestPrice}`}
         </p>
 
         <Link
@@ -55,7 +47,7 @@ export default function ProductCard({
             <circle cx="10" cy="21" r="1" fill="currentColor" />
             <circle cx="18" cy="21" r="1" fill="currentColor" />
           </svg>
-          {canSeePricing ? "Select options" : "View details"}
+          Select options
         </Link>
       </div>
     </div>
