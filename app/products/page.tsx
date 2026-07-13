@@ -22,25 +22,7 @@ export default function ProductsPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
-      <div className="border-b border-gray-200 pb-8">
-        <div className="flex flex-col items-start leading-none">
-          <span className="text-5xl font-extrabold tracking-tight text-blue-900">
-            Pep<span className="text-blue-500">X</span>
-          </span>
-          <span className="mt-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-400">
-            High Quality Peptides
-          </span>
-        </div>
-        <p className="mt-4 max-w-2xl text-sm text-gray-600">
-          All products are Research Use Only. Certificates of Analysis and Safety
-          Data Sheets are available on every product page. Institutional
-          verification is required at checkout.
-        </p>
-      </div>
-
-      <h2 className="mt-8 text-2xl font-semibold text-gray-900">Featured products</h2>
-
-      <div className="mt-6 grid gap-8 lg:grid-cols-[220px_1fr]">
+      <div className="grid gap-8 lg:grid-cols-[220px_1fr]">
         <aside className="lg:sticky lg:top-20 lg:h-fit">
           <p className="text-xs font-semibold uppercase tracking-wide text-gray-400">
             Categories
