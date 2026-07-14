@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/lib/auth-context";
 import { CartProvider } from "@/lib/cart-context";
-import EntryGate from "@/components/EntryGate";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -36,7 +35,6 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col bg-white text-gray-700">
         <AuthProvider>
           <CartProvider>
-            <EntryGate />
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
